@@ -669,7 +669,7 @@ public class BranchSDK extends CordovaPlugin {
 
             String out;
 
-            if (error == null && referringParams != null) {
+            if (error == null) {
 
                 // params are the deep linked params associated with the link that the user clicked -> was re-directed to this app
                 // params will be empty if no data found.
@@ -686,6 +686,7 @@ public class BranchSDK extends CordovaPlugin {
                         out = String.format("NonBranchLinkHandler(%s)", message.toString());
                         webView.sendJavascript(out);
                     }
+
                     deepLinkUrl = null;
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -707,8 +708,6 @@ public class BranchSDK extends CordovaPlugin {
                     this._callbackContext.error(message);
                 }
             }
-
-
         }
 
     }
